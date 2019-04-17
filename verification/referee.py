@@ -31,6 +31,20 @@ from checkio import api
 from checkio.referees.io import CheckiOReferee
 from checkio.referees import cover_codes
 
+convert_tuples = '''
+
+
+
+def cover(func, in_data):
+    def make_tuple(data):
+        if isinstance(data, list):
+            return tuple(map(make_tuple, data))
+        else:
+            return data
+    return func(make_tuple(in_data[0]))
+
+'''
+
 from tests import TESTS
 
 api.add_listener(

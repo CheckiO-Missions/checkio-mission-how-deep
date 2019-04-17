@@ -1,11 +1,11 @@
 <!-- Describe task in general -->
 
 <p>
-    You are given an Array {% if interpreter.slug == "js-node" %}(Array){% else %}(list){% endif %} that consists of integers and other arrays, which in turn can also contain arrays. 
+    You are given {% if interpreter.slug == "js-node" %}an array{% else %}a tuple{% endif %} that consists of integers and other {% if interpreter.slug == "js-node" %}arrays{% else %}tuples{% endif %}, which in turn can also contain {% if interpreter.slug == "js-node" %}arrays{% else %}tuples{% endif %}. 
 </p>
 
 <p>
-    Your task is to find out how deep this structure is or how deep the nesting of these arrays is.
+    Your task is to find out how deep this structure is or how deep the nesting of these {% if interpreter.slug == "js-node" %}arrays{% else %}tuples{% endif %} is.
 </p>
 
 <p>
@@ -20,7 +20,7 @@ For example, in the [1,2,3] array the depth of nesting is 1. And in the [1,2, [3
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array of array of array...{% else %}List of list of list...{% endif %}
+    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array of array of array...{% else %}Tuple of tuple of tuple...{% endif %}
 </p>
 
 <p>

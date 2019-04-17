@@ -1,7 +1,7 @@
 <!-- Describe task in general -->
 
 <p>
-    Вам дан Массив{% if interpreter.slug == "js-node" %}(Array){% else %}(list){% endif %}, который состоит из integers и других массивов. И эти массивы тоже могут внутри иметь массивы.
+    Вам дан Массив{% if interpreter.slug == "js-node" %}(Array){% else %}(tuple){% endif %}, который состоит из integers и других массивов. И эти массивы тоже могут внутри иметь массивы.
 </p>
 <p>
     Ваша задача узнать на сколько глубока эта структура или какая глубина вложенности этих массивов.
@@ -17,7 +17,7 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array of array of array...{% else %}List of list of list...{% endif %}
+    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array of array of array...{% else %}Tuple of tuple of tuple...{% endif %}
 </p>
 
 <p>
