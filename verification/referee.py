@@ -33,8 +33,6 @@ from checkio.referees import cover_codes
 
 convert_tuples = '''
 
-
-
 def cover(func, in_data):
     def make_tuple(data):
         if isinstance(data, list):
@@ -56,7 +54,7 @@ api.add_listener(
             "js": "howDeep"
         },
         cover_code={
-            'python-3': cover_codes.unwrap_args,
+            'python-3': convert_tuples,
             'js-node': cover_codes.js_unwrap_args
         }
     ).on_ready)
