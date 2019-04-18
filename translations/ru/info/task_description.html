@@ -32,8 +32,8 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">howDeep([1, 2, 3]) == 1
-howDeep([1, 2, [3]]) == 2
+<pre class="brush: javascript">howDeep((1, 2, 3)) == 1
+howDeep((1, 2, (3,))) == 2
 </pre>
 {% else %}
 <pre class="brush: python">how_deep([1, 2, 3]) == 1
