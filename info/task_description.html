@@ -1,60 +1,45 @@
 <!-- Describe task in general -->
 
 <p>
-    You are given {% if interpreter.slug == "js-node" %}an array{% else %}a tuple{% endif %} that consists of integers and other {% if interpreter.slug == "js-node" %}arrays{% else %}tuples{% endif %}, which in turn can also contain {% if interpreter.slug == "js-node" %}arrays{% else %}tuples{% endif %}. 
+    You are given {% if is_js %}an array{% else %}a tuple{% endif %} that consists of integers and other {% if is_js %}arrays{% else %}tuples{% endif %}, which in turn can also contain {% if is_js %}arrays{% else %}tuples{% endif %}. 
 </p>
 
 <p>
-    Your task is to find out how deep this structure is or how deep the nesting of these {% if interpreter.slug == "js-node" %}arrays{% else %}tuples{% endif %} is.
+    Your task is to find out how deep this structure is or how deep the nesting of these {% if is_js %}arrays{% else %}tuples{% endif %} is.
 </p>
-{% if interpreter.slug == "js-node" %}
+{% if is_js %}
 <p>
-For example, in the [1, 2, 3] array the depth of nesting is 1. And in the [1, 2, [3]] array the depth of nesting is 2, since one of the elements of the first array is also an array. And in the [1, 2, [3, [4]]] array the depth of nesting is 3, since one of the elements of the first array is an array, but since inside it contains another array, it increases the depth by one, so the nesting depth turns out to be 3.
+    For example, in the <b class="code">[1, 2, 3]</b> array the depth of nesting is 1. And in the <b class="code">[1, 2, [3]]</b> array the depth of nesting is 2, since one of the elements of the first array is also an array. And in the <b class="code">[1, 2, [3, [4]]]</b> array the depth of nesting is 3, since one of the elements of the first array is an array, but since inside it contains another array, it increases the depth by one, so the nesting depth turns out to be 3.
 </p>
-
 <p>
-    It’s important to note that an empty array also increases the depth of the structure, that is, [] - indicates the nesting depth 1, [[]] - indicates the nesting depth 2.
+    It’s important to note that an empty array also increases the depth of the structure, that is, <b class="code">[]</b> - indicates the nesting depth 1, <b class="code">[[]]</b> - indicates the nesting depth 2.
 </p>
-
 {% else %}
 <p>
-For example, in the (1, 2, 3) tuple the depth of nesting is 1. And in the (1, 2, (3,)) tuple the depth of nesting is 2, since one of the elements of the first tuple is also a tuple. And in the (1, 2, (3, (4,))) tuple the depth of nesting is 3, since one of the elements of the first tuple is a tuple, but since inside it contains another tuple, it increases the depth by one, so the nesting depth turns out to be 3.
+    For example, in the <b class="code">(1, 2, 3)</b> tuple the depth of nesting is 1. And in the <b class="code">(1, 2, (3,))</b> tuple the depth of nesting is 2, since one of the elements of the first tuple is also a tuple. And in the <b class="code">(1, 2, (3, (4,)))</b> tuple the depth of nesting is 3, since one of the elements of the first tuple is a tuple, but since inside it contains another tuple, it increases the depth by one, so the nesting depth turns out to be 3.
 </p>
-
 <p>
-    It’s important to note that an empty tuple also increases the depth of the structure, that is, () - indicates the nesting depth 1, ((),) - indicates the nesting depth 2.
+    It’s important to note that an empty tuple also increases the depth of the structure, that is, <b class="code">()</b> - indicates the nesting depth 1, <b class="code">((),)</b> - indicates the nesting depth 2.
 </p>
 {% endif %}
 
-
-
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array of array of array...{% else %}Tuple of tuple of tuple...{% endif %}
+    <strong>Input:</strong> {% if is_js %}Array of arrays of arrays...of numbers{% else %}Tuple of tuples of tuples...of integers{% endif %}.
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output:</strong> {% if is_js %}Number{% else %}Integer{% endif %}. 
 </p>
-
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
-
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">howDeep([1, 2, 3]) == 1
-howDeep([1, 2, [3]]) == 2
-</pre>
-{% else %}
-<pre class="brush: python">how_deep((1, 2, 3)) == 1
-how_deep((1, 2, (3,))) == 2
-</pre>
-{% endif %}
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <p>
-    <strong>Precondition: </strong> Given iterables have to be well founded. 
+    <strong>Precondition:</strong> Given iterables have to be well founded. 
 </p>
