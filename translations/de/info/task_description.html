@@ -1,0 +1,45 @@
+<!-- Describe task in general -->
+
+<p>
+    Sie erhalten {% if is_js %}ein Array{% else %}ein Tupel{% endif %} das aus ganzen Zahlen und anderen {% if is_js %}Arrays{% else %}Tupeln{% endif %} besteht, die wiederum auch {% if is_js %}Arrays{% else %}Tupel{% endif %} enthalten können. 
+</p>
+
+<p>
+    Ihre Aufgabe ist es, herauszufinden, wie tief diese Struktur ist oder wie tief die Verschachtelung dieser {% if is_js %}Arrays{% else %}Tupel{% endif %} ist.
+</p>
+{% if is_js %}
+<p>
+    Im Array <b class="code">[1, 2, 3]</b> ist die Verschachtelungstiefe zum Beispiel 1. Und im Array <b class="code">[1, 2, [3]]</b> ist die Verschachtelungstiefe 2, da eines der Elemente des ersten Arrays ebenfalls ein Array ist. Und im Array <b class="code">[1, 2, [3, [4]]]</b> beträgt die Verschachtelungstiefe 3, da eines der Elemente des ersten Arrays ein Array ist, aber da es in seinem Inneren ein weiteres Array enthält, erhöht sich die Tiefe um eins, so dass die Verschachtelungstiefe 3 beträgt.
+</p>
+<p>
+    Es ist wichtig zu wissen, dass ein leeres Array auch die Tiefe der Struktur erhöht, d.h. <b class="code">[]</b> - gibt die Verschachtelungstiefe 1 an, <b class="code">[[]]</b> - gibt die Verschachtelungstiefe 2 an.
+</p>
+{% else %}
+<p>
+    Im Tupel <b class="code">(1, 2, 3)</b> ist die Verschachtelungstiefe beispielsweise 1. Und im Tupel <b class="code">(1, 2, (3,))</b> ist die Verschachtelungstiefe 2, da eines der Elemente des ersten Tupels ebenfalls ein Tupel ist. Und im Tupel <b class="code">(1, 2, (3, (4,)))</b> ist die Verschachtelungstiefe 3, da eines der Elemente des ersten Tupels ein Tupel ist, aber da es ein weiteres Tupel enthält, erhöht es die Tiefe um eins, so dass die Verschachtelungstiefe 3 beträgt.
+</p>
+<p>
+    Es ist wichtig zu beachten, dass ein leeres Tupel ebenfalls die Tiefe der Struktur erhöht, d.h. <b class="code">()</b> - gibt die Verschachtelungstiefe 1 an, <b class="code">((),)</b> - die Verschachtelungstiefe 2.
+</p>
+{% endif %}
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> {% if is_js %}Array von Arrays von Arrays...von Zahlen{% else %}Tupel von Tupeln von Tupeln...von ganzen Zahlen{% endif %}.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> {% if is_js %}Zahl{% else %}Ganzzahl{% endif %}. 
+</p>
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
+<p>
+   <strong>Vorbedingung:</strong> Die gegebenen Iterablen müssen gut begründet sein. 
+</p>
